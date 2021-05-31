@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model IEnumerable<PruebaTata.Models.ContadordePalabras>
+
+<div class="">
+    <h3 class="display-4">Palabras que se repiten:</h3>
+</div>
+
+    <div class="table" style="font-size:12px;">
+        <table class="table table-striped">
+            <thead class="thead-light">
+                <tr>
+                    <th>Palabra</th>
+                    <th>Frecuencia</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        @if (item.frecuencia > 1 && item.palabra != "")
+                        {
+                            <td class="" style="width:50%; font-size:large">
+                                @Html.DisplayFor(modelItem => item.palabra)
+                            </td>
+                            <td class="" style="width:50%; font-size:large;">
+                                @Html.DisplayFor(modelItem => item.frecuencia)
+                            </td>
+                            ViewBag.repeticiones = 1;
+                        }
+                    </tr>
+                }
+                </tbody>                
+        </table>
+    </div>
+
+@if (ViewBag.repeticiones == 0)
+{
+    <label>No hay palabras repetidas en el texto que introduciste.</label>
+}
+

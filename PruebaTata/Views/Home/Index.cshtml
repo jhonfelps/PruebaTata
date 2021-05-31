@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Bienvenido(a)!</h1>
+    <p>Puedes ingresar el texto que desees en la siguiente area de texto y luego al dar clic a enviar
+    texto, verás cuales son las palabras que se repiten y cuantas veces.</p>
+</div>
+<div class="col-md-12">
+    <form method="post" id="busquedasform2" action="@Url.Action("Contarrepetidos", "Home")">
+        <textarea class="form-control" id="textoentrada" placeholder="Ingresa el texto"
+                  name="textoentrada" typeof="text" rows="10" required></textarea>
+        <input type="button" class="btn btn-primary float-right" onclick="validartexto()" value="Enviar texto" />
+    </form>    
+</div>
